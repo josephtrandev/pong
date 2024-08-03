@@ -26,19 +26,12 @@ public partial class Ball : RigidBody2D
 		}
 	}
 	
-	public void MoveBody(Vector2 targetPos)
+	public void Start(Vector2 targetPos)
 	{
 		Show();
 		GetNode<CollisionShape2D>("CollisionShape2D").Disabled = false;
 		moveVector = targetPos;
 		reset_state = true;
-	}
-	
-	public void Start(Vector2 position)
-	{
-		Position = position;
-		Show();
-		GetNode<CollisionShape2D>("CollisionShape2D").Disabled = false;
 	}
 	
 	private void OnVisibleOnScreenNotifier2DScreenExited()

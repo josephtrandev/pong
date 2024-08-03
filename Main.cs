@@ -53,7 +53,7 @@ public partial class Main : Node
 		var velocity = new Vector2(0, 0);
 		ball.LinearVelocity = velocity;
 		var targetPos = new Vector2(576, 320);
-		ball.MoveBody(targetPos);
+		ball.Start(targetPos);
 		
 		GetNode<Timer>("StartTimer").Start();
 	}
