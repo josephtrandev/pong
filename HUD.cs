@@ -34,9 +34,10 @@ public partial class HUD : CanvasLayer
 		await ToSignal(messageTimer, Timer.SignalName.Timeout);
 		
 		ShowMessage("Play again?");
+		GetNode<Timer>("MessageTimer").Stop();
 		
 		await ToSignal(GetTree().CreateTimer(1.0), SceneTreeTimer.SignalName.Timeout);
-		GetNode<Button>("StartButton").Show();
+		GetNode<Button>("PlayButton").Show();
 	}
 	
 	async public void ShowGameWin()
@@ -47,9 +48,10 @@ public partial class HUD : CanvasLayer
 		await ToSignal(messageTimer, Timer.SignalName.Timeout);
 		
 		ShowMessage("Play again?");
+		GetNode<Timer>("MessageTimer").Stop();
 		
 		await ToSignal(GetTree().CreateTimer(1.0), SceneTreeTimer.SignalName.Timeout);
-		GetNode<Button>("StartButton").Show();
+		GetNode<Button>("PlayButton").Show();
 	}
 	
 	public void UpdateScore(int playerScore, int botScore)
@@ -58,9 +60,9 @@ public partial class HUD : CanvasLayer
 		GetNode<Label>("BotScore").Text = botScore.ToString();
 	}
 	
-	private void OnStartButtonPressed()
+	private void OnPlayButtonPressed()
 	{
-		GetNode<Button>("StartButton").Hide();
+		GetNode<Button>("PlayButton").Hide();
 		EmitSignal(SignalName.StartGame);
 	}
 

@@ -132,6 +132,7 @@ shape = SubResource("2")
 [node name="Divider" type="Node" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="Divider"]
+modulate = Color(0, 0, 0, 0.235294)
 visibility_layer = 2
 position = Vector2(576, 324.49)
 rotation = 1.5708
