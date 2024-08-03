@@ -6,7 +6,7 @@ public partial class Main : Node
 	[Export]
 	public PackedScene BallScene { get; set; }
 	
-	private int _gameTime;
+	private int _playerScore, _botScore;
 	
 	public override void _Ready()
 	{
@@ -14,6 +14,9 @@ public partial class Main : Node
 	
 	public void GameOver()
 	{
+		_botScore++;
+		GetNode<HUD>("HUD").UpdateScore(_playerScore, _botScore);
+		
 		GetNode<Timer>("BallTimer").Stop();
 		GetNode<Timer>("GameTimer").Stop();
 		GetNode<HUD>("HUD").ShowGameOver();
@@ -21,6 +24,9 @@ public partial class Main : Node
 	
 	public void GameWin()
 	{
+		_playerScore++;
+		GetNode<HUD>("HUD").UpdateScore(_playerScore, _botScore);
+		
 		GetNode<Timer>("BallTimer").Stop();
 		GetNode<Timer>("GameTimer").Stop();
 		GetNode<HUD>("HUD").ShowGameWin();
@@ -28,31 +34,33 @@ public partial class Main : Node
 	
 	public void NewGame()
 	{
-		_gameTime = 0;
 		
 		var hud = GetNode<HUD>("HUD");
-		hud.UpdateTime(_gameTime);
 		hud.ShowMessage("Get Ready!");
 		
+		// Reset player paddle position
 		var player = GetNode<Player>("Player");
 		var playerStartPosition = GetNode<Marker2D>("PlayerStartPosition");
 		player.Start(playerStartPosition.Position);
 		
+		// Reset bot paddle position
 		var bot = GetNode<Bot>("Bot");
 		var botStartPosition = GetNode<Marker2D>("BotStartPosition");
 		bot.Start(botStartPosition.Position);
 		
+		// Stop all velocity on ball and reset position on new game
 		var ball = GetNode<Ball>("Ball");
-		var ballStartPosition = GetNode<Marker2D>("BallStartPosition");
-		ball.Start(ballStartPosition.Position);
+		var velocity = new Vector2(0, 0);
+		ball.LinearVelocity = velocity;
+		var targetPos = new Vector2(576, 320);
+		ball.MoveBody(targetPos);
 		
 		GetNode<Timer>("StartTimer").Start();
 	}
 	
 	private void OnGameTimerTimeout()
 	{
-		_gameTime++;
-		GetNode<HUD>("HUD").UpdateTime(_gameTime);
+		GetNode<HUD>("HUD").UpdateScore(_playerScore, _botScore);
 	}
 	
 	private void OnStartTimerTimeout()
@@ -63,8 +71,9 @@ public partial class Main : Node
 	
 	private void OnBallTimerTimeout()
 	{
+		// Once game starts, reapply velocity to ball
 		var ball = GetNode<Ball>("Ball");
-		var velocity = new Vector2(x: -400, y: -400);
+		var velocity = new Vector2(-400, -400);
 		ball.LinearVelocity = velocity;
 	}
 

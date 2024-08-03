@@ -33,9 +33,7 @@ public partial class HUD : CanvasLayer
 		var messageTimer = GetNode<Timer>("MessageTimer");
 		await ToSignal(messageTimer, Timer.SignalName.Timeout);
 		
-		var message = GetNode<Label>("Message");
-		message.Text = "Stop the ball!";
-		message.Show();
+		ShowMessage("Play again?");
 		
 		await ToSignal(GetTree().CreateTimer(1.0), SceneTreeTimer.SignalName.Timeout);
 		GetNode<Button>("StartButton").Show();
@@ -48,17 +46,16 @@ public partial class HUD : CanvasLayer
 		var messageTimer = GetNode<Timer>("MessageTimer");
 		await ToSignal(messageTimer, Timer.SignalName.Timeout);
 		
-		var message = GetNode<Label>("Message");
-		message.Text = "Stop the ball!";
-		message.Show();
+		ShowMessage("Play again?");
 		
 		await ToSignal(GetTree().CreateTimer(1.0), SceneTreeTimer.SignalName.Timeout);
 		GetNode<Button>("StartButton").Show();
 	}
 	
-	public void UpdateTime(int gameTime)
+	public void UpdateScore(int playerScore, int botScore)
 	{
-		GetNode<Label>("TimerLabel").Text = gameTime.ToString();
+		GetNode<Label>("PlayerScore").Text = playerScore.ToString();
+		GetNode<Label>("BotScore").Text = botScore.ToString();
 	}
 	
 	private void OnStartButtonPressed()

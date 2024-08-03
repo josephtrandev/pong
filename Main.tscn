@@ -37,6 +37,7 @@ size = Vector2(100, 20)
 
 [node name="Main" type="Node"]
 script = ExtResource("1_pmk0u")
+BallScene = ExtResource("2")
 
 [node name="WallContainer" type="Node" parent="."]
 

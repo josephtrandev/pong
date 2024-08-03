@@ -1,21 +1,40 @@
-[gd_scene load_steps=3 format=3 uid="uid://dlpopgxjasi6u"]
+[gd_scene load_steps=4 format=3 uid="uid://dlpopgxjasi6u"]
 
 [ext_resource type="Script" path="res://HUD.cs" id="1_2bh1q"]
-[ext_resource type="FontFile" uid="uid://dlnpnbtmggpyn" path="res://assets/fonts/Xolonium-Regular.ttf" id="2_3vhhj"]
+[ext_resource type="FontFile" uid="uid://cggaqnln4bxi8" path="res://assets/fonts/_bitmap_font____romulus_by_pix3m-d6aokem.ttf" id="2_rmr6r"]
+[ext_resource type="FontFile" uid="uid://d07u1t5e26vks" path="res://assets/fonts/alagard_by_pix3m-d6awiwp.ttf" id="3_6f1jp"]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_2bh1q")
 
-[node name="TimerLabel" type="Label" parent="."]
+[node name="PlayerScore" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0.54902)
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -22.5
-offset_right = 22.5
-offset_bottom = 78.0
+offset_left = -357.5
+offset_top = 256.0
+offset_right = -301.5
+offset_bottom = 366.0
 grow_horizontal = 2
-theme_override_fonts/font = ExtResource("2_3vhhj")
-theme_override_font_sizes/font_size = 64
+theme_override_fonts/font = ExtResource("2_rmr6r")
+theme_override_font_sizes/font_size = 128
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BotScore" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0.54902)
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 306.5
+offset_top = 256.0
+offset_right = 362.5
+offset_bottom = 366.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_rmr6r")
+theme_override_font_sizes/font_size = 128
 text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -32,7 +51,7 @@ offset_right = 240.0
 offset_bottom = 39.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("2_3vhhj")
+theme_override_fonts/font = ExtResource("2_rmr6r")
 theme_override_font_sizes/font_size = 64
 text = "Pong"
 horizontal_alignment = 1
@@ -51,7 +70,7 @@ offset_right = 100.0
 offset_bottom = -68.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_fonts/font = ExtResource("2_3vhhj")
+theme_override_fonts/font = ExtResource("3_6f1jp")
 theme_override_font_sizes/font_size = 64
 text = "Start"
 
