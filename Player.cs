@@ -3,7 +3,7 @@ using System;
 
 public partial class Player : StaticBody2D
 {
-	private float _speed = 400;
+	private float _speed = 500;
 	public Vector2 ScreenSize;
 	
 	// Called when the node enters the scene tree for the first time.

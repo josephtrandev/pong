@@ -34,7 +34,6 @@ public partial class Main : Node
 	
 	public void NewGame()
 	{
-		
 		var hud = GetNode<HUD>("HUD");
 		hud.ShowMessage("Get Ready!");
 		
@@ -75,6 +74,7 @@ public partial class Main : Node
 		var ball = GetNode<Ball>("Ball");
 		var velocity = new Vector2(-400, -400);
 		ball.LinearVelocity = velocity;
+		
 	}
 
 }
