@@ -51,7 +51,7 @@ A classic Pong game clone developed using the Godot Engine and C#. This personal
 
 ## Usage
 
-- Use the Up and Down arrow keys or 'W" and 'S' keys to move the paddle up and down.
+- Use the `Up` and `Down` arrow keys or `W` and `S` keys to move the paddle up and down.
 - Press Escape or `P` to pause the game.
 - Press `R` to restart the game.
 
