@@ -57,7 +57,7 @@ A classic Pong game clone developed using the Godot Engine and C#. This personal
 
 ## Credits
 
-Thank you to [Kenney Vleugels](www.kenney.nl "Find more here") for allowing his free asset graphics to be used in this project.
+Thank you to [Kenney Vleugels](https://www.kenney.nl "Find more here") for allowing his free asset graphics to be used in this project.
 
 ## License
 
