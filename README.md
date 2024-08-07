@@ -20,10 +20,8 @@ A classic Pong game clone developed using the Godot Engine and C#. This personal
 
 ## Screenshots
 
-![Start Menu](/assets/preview/StartMenu.png?raw=true)
-![Game Start](/assets/preview/GameStart.png?raw=true)
-![Player Win](/assets/preview/PlayerWin.png?raw=true)
-![Play Again](/assets/preview/PlayAgain.png?raw=true)
+|<img src="/assets/preview/StartMenu.png?raw=true" alt="Start Menu" width="200"> | <img src="/assets/preview/GameStart.png?raw=true" alt="Game Start" width="200"> | <img src="/assets/preview/PlayerWin.png?raw=true" alt="Player Win" width="200"> | 
+<img src="/assets/preview/PlayAgain.png?raw=true" alt="Play Again" width="200">
 
 ## Installation
 
