@@ -6,7 +6,7 @@ public partial class HUD : CanvasLayer
 	
 	[Signal]
 	public delegate void StartGameEventHandler();
-	
+
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -14,7 +14,7 @@ public partial class HUD : CanvasLayer
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
-	{
+	{		
 	}
 	
 	public void ShowMessage(string text)

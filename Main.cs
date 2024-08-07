@@ -3,13 +3,39 @@ using System;
 
 public partial class Main : Node
 {
-	[Export]
-	public PackedScene BallScene { get; set; }
-	
 	private int _playerScore, _botScore;
+	CanvasLayer pause_menu = null;
 	
 	public override void _Ready()
 	{
+		pause_menu = GetNode<CanvasLayer>("PauseMenu");
+		pause_menu.Visible = false;
+	}
+	
+	public override void _Process(double delta)
+	{
+		if (pause_menu.Visible)
+		{
+			pause_menu.Visible = false;
+		}
+		
+	}
+	
+	public override void _Input(InputEvent @event)
+	{
+		if (Input.IsActionPressed("p_pause"))
+		{
+			PauseGame();
+		}
+	}
+	
+	public void PauseGame()
+	{
+		if (!GetNode<Timer>("GameTimer").IsStopped())
+		{
+			pause_menu.Show();
+			GetTree().Paused = true;
+		}
 	}
 	
 	public void GameOver()
